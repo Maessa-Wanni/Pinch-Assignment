@@ -12,10 +12,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveSizer(
       builder: (ctx, orientation, screenType) => MaterialApp(
+
+        ////A global key used to control navigation
+        //It allows global navigation control without relying solely on the context.
         navigatorKey: navigatorKey,
         debugShowCheckedModeBanner: false,
         title: AppTexts.appName,
         initialRoute: Routes.splashScreen,
+        ////A function that dynamically generates routes based on the requested navigation path.
+        //It allows defining complex navigation logic dynamically, instead of using static route mappings.
         onGenerateRoute: AppRouter.generateRoute,
       ),
     );
